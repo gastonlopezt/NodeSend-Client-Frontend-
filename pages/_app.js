@@ -1,5 +1,29 @@
-import '@/styles/globals.css'
+import React from 'react'
 
-export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />
+import '@/styles/globals.css'
+import AuthState from '../context/auth/authState'
+import AppState from '../context/app/appState'
+
+
+const myApp = ({Component, pageProps}) => {
+  return (
+    <React.StrictMode>
+      <AuthState>
+        <AppState>
+          <Component {...pageProps} />
+        </AppState>
+        
+      </AuthState>
+    </React.StrictMode>
+  )
 }
+
+export default myApp;
+
+
+
+
+
+
+
+
